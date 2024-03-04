@@ -1,0 +1,129 @@
+* {
+    box-sizing: border-box;
+}
+body {
+    font-family: Arial, Helvetica, sans-serif;
+}
+.control-button {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    z-index: 2;
+    background-color: rgba(3, 169, 244, 0.9);
+    left: 0;
+    top: 0;
+}
+.control-button span {
+    padding: 15px 20px;
+    color: #fff;
+    background-color: #f00;
+    border-radius: 6px;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 25px;
+    font-weight: bold;
+    cursor: pointer;
+    text-align: center;
+}
+.info-container {
+    width: 1080px;
+    margin: 20px auto 0;
+    background-color: #f6f6f6;
+    font-size: 24px;
+    overflow: hidden;
+    border: 2px solid #2196f3;
+    padding: 20px;
+}
+.info-container .name {
+    float: left;
+    width: 50%;
+}
+.info-container .tries {
+    float: right;
+    text-align: right;
+    width: 50%;
+}
+.memory-game-blocks {
+    display: flex;
+    flex-wrap: wrap;
+    width: 1100px;
+    margin: 20px auto;
+}
+.memory-game-blocks.no-clicking {
+    pointer-events: none;
+}
+.memory-game-blocks .game-block {
+    height: 200px;
+    flex: 1 0 200px;
+    margin: 0 10px 20px;
+    transition: transform 0.5s;
+    transform-style: preserve-3d;
+    cursor: pointer;
+    position: relative;
+}
+.memory-game-blocks .game-block .front {
+    background-color: #333;
+    line-height: 200px;
+}
+
+.memory-game-blocks .game-block .front::before {
+    content: "?";
+    font-size: 140px;
+    font-weight: bold;
+    color: #fff;
+
+} 
+.memory-game-blocks .game-block .back {
+      background-color: #607d8b; 
+      transform: rotateY(180deg); 
+}
+
+.memory-game-blocks .game-block .back img {
+    width: 140px;
+    height: 140px;
+    margin-top: 30px;
+}
+.memory-game-blocks .game-block .face {
+    width: 100%;
+    height: 100%;
+    border: 5px solid #2196f3;
+    position: absolute;
+    text-align: center;
+    backface-visibility: hidden;  
+    
+}
+
+.memory-game-blocks .game-block.isflibed, 
+.memory-game-blocks .game-block.ismatched{
+    -webkit-transform: rotateY(180deg);
+    -moz-transform: rotateY(180deg);
+    transform: rotateY(180deg);
+    pointer-events: none;
+} 
+.timer {
+    width: 1080px;
+    margin: 20px auto 0;
+    padding: 10px;
+    font-size: 22px;
+    font-weight: bold;
+    color: red;
+}
+.game-over {
+    position: absolute;
+    width:300px;
+    height: 80px;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%,-50%);
+    background-color: red;
+    color: #fff;
+    font-size: 44px;
+    font-weight: bold;
+    z-index: 555;
+    padding: 10px;
+    text-align: center;
+    display: none;
+    border-radius: 5px;
+}
